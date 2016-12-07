@@ -5,10 +5,13 @@
   | Database |      |             |
 
   Example flow of Phoenix app
-
-  =Incoming Req > Ensure its an HTML Req > See if it has a session > Do a security check=
-  => Put on HTTP headers for a browser > See what the Req was trying to access=
-  => Formulate and return a response=
+  1) Incoming Req
+  2) Ensure its an HTML Req
+  3) See if it has a session
+  4) Do a security check
+  5) Put on HTTP headers for a browser
+  6) See what the Req was trying to access
+  7) Formulate and return a response
 
 ** MVC
 
