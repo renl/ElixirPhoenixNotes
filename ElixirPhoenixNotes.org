@@ -4,6 +4,16 @@
   | Phoenix  |      |             |
   | Database |      |             |
 
+  | Request    |    |          |    |          |
+  | v          |    |          |    |          |
+  | Router     |    |          |    |          |
+  | v          |    |          |    |          |
+  | Controller | <- | Model    | <- | Database |
+  | v          |    |          |    |          |
+  | View       | <- | Template |    |          |
+  | v          |    |          |    |          |
+  | Response   |    |          |    |          |
+
   Example flow of Phoenix app
   1) Incoming Req
   2) Ensure its an HTML Req
@@ -138,6 +148,10 @@
 
    =Connection > endpoint > router > pipeline > controller=
 
+   The controller figures out what user wants and grab the correct
+   model, put in view and return to the user the results
+
+
 *** Common services
 
 *** Action
@@ -145,6 +159,7 @@
 ** View
 
    View modules are responsible for rendering
+   In a sense the template takes the model and make it look nice
    ie parsing text for rendering
 
    Name of view module inferred from name of controller module
@@ -197,6 +212,8 @@
 
 ** Ecto Model
 
+   The raw data of the web app
+
    ~mix ecto.create~
 
 *** Model
@@ -240,3 +257,6 @@
 ** OTP
 
 ** Umbrellas
+** CSS
+
+   Materializecss
