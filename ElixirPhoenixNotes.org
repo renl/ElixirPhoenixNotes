@@ -1,8 +1,10 @@
 * Phoenix
 
-  | HTML     | JSON | Web Sockets |
-  | Phoenix  |      |             |
-  | Database |      |             |
+** Overview
+
+  | HTML | JSON     | Web Sockets |
+  |      | Phoenix  |             |
+  |      | Database |             |
 
   Example flow of Phoenix app
   1) Incoming Req
@@ -239,6 +241,21 @@
       not persisted in db
 
 *** Migration
+
+    Instructing db about the types of data or the tables that it has
+
+    If the structure of the db is changed a migration has to be triggered
+
+    ~mix ecto.gen.migration {name}~ /generates migration file/
+
+    #+BEGIN_SRC
+    def change do
+      create table(:{name of table}) do
+        add :{column name}, :{type}
+    end
+    #+END_SRC
+
+    ~mix ecto.migrate~
 
 *** Changeset
 
