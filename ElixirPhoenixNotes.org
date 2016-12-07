@@ -1,13 +1,15 @@
 * Phoenix
 
   | HTML |   | JSON |   | Web Sockets |
-  |      |   |      |   |             |
+
+      
 
              | Phoenix |
-             |         |
+
+
 
              | Database |
-             |          |
+
 
 ** MVC
 
