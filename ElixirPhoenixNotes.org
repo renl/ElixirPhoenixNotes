@@ -1,5 +1,31 @@
 * Phoenix
 
+  | HTML |   | JSON |   | Web Sockets |
+  |      |   |      |   |             |
+
+             | Phoenix |
+             |         |
+
+             | Database |
+             |          |
+
+** MVC
+
+[[file:Screenshot%20from%202016-12-06%2019-58-27.png]]
+
+** Installation
+
+*** Phoenix
+
+   To install Phoenix archive
+   ~mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez~
+
+*** Postgresql
+
+    For Fedora
+    ~sudo systemctl {restart/start/stop} postgresql.service~
+    ~sudo postgresql_setup initdb~
+
 ** Create a project
 
    ~mix phoenix.new {project name}~
