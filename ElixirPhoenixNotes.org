@@ -1,0 +1,212 @@
+* Phoenix
+
+** Create a project
+
+   ~mix phoenix.new {project name}~
+   ~mix ecto.create~ /Creates underlying database/
+   ~mix phoenix.server~ /start server/
+   ~iex -S mix phoenix.server~ /run app in IEx/
+
+** Route
+
+   =Connection > endpoint > router > pipeline > controller=
+
+*** Pipelines
+
+   ~pipe_through :browser~
+   Common set of tasks for some logical group of functions
+
+*** Route table
+
+**** Dynamic routes
+
+    ~get "/hello/:name", HelloController, :world~
+    creates a parameter called :name ~%{"name" => name}~ used in controller
+
+**** Scope
+
+*** Helper functions
+
+**** Router helpers
+
+    ~{module}_path~ helper
+    Arg1: Conn
+    Arg2: Function
+    Arg...: Params
+
+** Config
+
+   Master configuration file
+   ~config/config.exs~
+
+*** Environment
+
+    set via ~MIX_ENV~
+    - prod
+    - dev
+    - test
+
+** Test
+
+** Endpoint
+
+   Chain of functions /plugs/
+   End with router
+
+** Pipeline
+
+   Pipelines of plugs
+
+*** Plug
+
+    Consumes and produces a common data structure ~Plug.Conn~
+
+**** Conn
+
+** Web
+
+   Contains all the required modules
+
+*** Model
+
+    - Ecto.Schema
+    - Ecto
+    - Ecto.Changeset
+    - Ecto.Query /only from:1 and from:2/
+
+*** Controller
+
+    - Phoenix.Controller
+    - App.Repo
+    - Ecto
+    - Ecto.Query
+    - App.Router.Helpers
+    - App.Gettext
+
+*** View
+
+    - Phoenix.View
+    - Phoenix.Controller /only get_csrf_token get_flash view_module/
+    - Phoenix.HTML
+    - App.Router.Helpers
+    - App.ErrorHelpers
+    - App.Gettext
+
+*** Router
+
+    - Phoenix.Router
+
+*** Channel
+
+    - Phoenix.Channel
+    - App.Repo
+    - Ecto
+    - Ecto.Query
+    - App.Gettext
+
+** Controller
+
+   =Connection > endpoint > router > pipeline > controller=
+
+*** Common services
+
+*** Action
+
+** View
+
+   View modules are responsible for rendering
+   ie parsing text for rendering
+
+   Name of view module inferred from name of controller module
+   =UserController --> UserView=
+
+** Template
+
+   Become a ~render(template_name, assigns)~ clause in respective view
+
+   #+BEGIN_SRC
+   def render("404.html", _assigns) do
+     "Page not found"
+   end
+   #+END_SRC
+
+*** Tags
+
+    ~<%= %>~
+    Injects result into template
+
+    ~<% %>~
+    Without injecting result
+
+*** Helpers
+
+**** Link
+
+     ~link "View", to: user_path(@conn, :show, user.id)~
+     Keyword list to: sets link target
+
+*** Assigns
+
+    ~<h1> Hello <%= String.capitalize @name %>!</h1>~
+    Accessing name variable assigned in render called in controller
+
+*** Nesting templates
+
+    ~<%= render "user.html", user:@user %>~
+    Template can render another template
+
+**** Layouts
+
+     When render is called in controller, layout template is rendered before actual template
+
+***** Special assigns
+
+      @view_module
+      @view_template
+      @conn is also available in layout
+
+** Ecto Model
+
+   ~mix ecto.create~
+
+*** Model
+
+*** Schema
+
+    Specifies the underlying database table and the Elixir struct
+
+    Primary key automatically defined and default to ~:id~
+
+**** Schema
+
+     Ecto use schema to define Elixir struct
+
+     Create struct using ~%App.Module{}~
+
+**** Field
+
+     Correspond to both a field in db and in Elixir struct
+
+***** Virtual field
+      
+      not persisted in db
+
+*** Migration
+
+*** Changeset
+
+    Holds all the changes you want to perform on the database
+    Encapsulates process of
+    - receiving external data
+    - casting
+    - validating
+
+*** Queries
+    
+** Authentication
+
+** Channels
+
+** OTP
+
+** Umbrellas
