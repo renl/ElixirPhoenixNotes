@@ -4,6 +4,15 @@
   | Phoenix  |      |             |
   | Database |      |             |
 
+  Example flow of Phoenix app
+  1) Incoming Req
+  2) Ensure its an HTML Req
+  3) See if it has a session
+  4) Do a security check
+  5) Put on HTTP headers for a browser
+  6) See what the Req was trying to access
+  7) Formulate and return a response
+
   | Request    |    |          |    |          |
   | v          |    |          |    |          |
   | Router     |    |          |    |          |
@@ -13,15 +22,6 @@
   | View       | <- | Template |    |          |
   | v          |    |          |    |          |
   | Response   |    |          |    |          |
-
-  Example flow of Phoenix app
-  1) Incoming Req
-  2) Ensure its an HTML Req
-  3) See if it has a session
-  4) Do a security check
-  5) Put on HTTP headers for a browser
-  6) See what the Req was trying to access
-  7) Formulate and return a response
 
 ** MVC
 
