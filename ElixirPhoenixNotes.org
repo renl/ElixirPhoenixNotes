@@ -1,12 +1,11 @@
 * Phoenix
 
-  | HTML | JSON | Web Sockets |
-
-  | Phoenix |
-
-  | Database |
+  | HTML     | JSON | Web Sockets |
+  | Phoenix  |      |             |
+  | Database |      |             |
 
   Example flow of Phoenix app
+
   =Incoming Req > Ensure its an HTML Req > See if it has a session > Do a security check=
   => Put on HTTP headers for a browser > See what the Req was trying to access=
   => Formulate and return a response=
