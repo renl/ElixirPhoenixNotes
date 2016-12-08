@@ -49,6 +49,28 @@
    ~mix phoenix.server~ /start server/
    ~iex -S mix phoenix.server~ /run app in IEx/
 
+** Generators
+
+   Mix tasks used to bootstrap applications
+
+   Create simple CRUD app
+
+   ~phoenix.gen.json~ /creates simple HTTP scaffold for a REST-based API using JSON/
+
+   ~phoenix.gen.html~ /creates simple HTTP scaffold with HTML pages/
+
+   Command
+   ~mix phoenix.gen.html \~
+   ~{Name of module that define model} \~
+   ~{Plural form of model name} \~ /used for resources and schema/
+   ~{Each model field with type info}~
+
+   Example
+   ~mix phoenix.gen.html Video videos user_id:references:users \~
+   ~url:string title:string description:text~
+
+   Model field can support belongs_to associations via references:
+
 ** Route
 
    =Connection > endpoint > router > pipeline > controller=
