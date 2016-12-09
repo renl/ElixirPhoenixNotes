@@ -40,14 +40,19 @@
 *** Postgresql
 
     For Fedora
+
     ~sudo systemctl {restart/start/stop} postgresql.service~
+
     ~sudo postgresql_setup initdb~
 
 ** Create a project
 
    ~mix phoenix.new {project name}~
+
    ~mix ecto.create~ /Creates underlying database/
+
    ~mix phoenix.server~ /start server/
+
    ~iex -S mix phoenix.server~ /run app in IEx/
 
 ** Generators
@@ -61,13 +66,19 @@
    ~phoenix.gen.html~ /creates simple HTTP scaffold with HTML pages/
 
    Command
+
    ~mix phoenix.gen.html \~
+
    ~{Name of module that define model} \~
+
    ~{Plural form of model name} \~ /used for resources and schema/
+
    ~{Each model field with type info}~
 
    Example
+
    ~mix phoenix.gen.html Video videos user_id:references:users \~
+
    ~url:string title:string description:text~
 
    Model field can support belongs_to associations via references:
@@ -79,6 +90,7 @@
 *** Pipelines
 
    ~pipe_through :browser~
+
    Common set of tasks for some logical group of functions
 
 *** Route table
@@ -86,6 +98,7 @@
 **** Dynamic routes
 
     ~get "/hello/:name", HelloController, :world~
+
     creates a parameter called :name ~%{"name" => name}~ used in controller
 
 **** Scope
@@ -95,9 +108,9 @@
 **** Router helpers
 
     ~{module}_path~ helper
-    Arg1: Conn
-    Arg2: Function
-    Arg...: Params
+    - Arg1: Conn
+    - Arg2: Function
+    - Arg...: Params
 
 ** Config
 
