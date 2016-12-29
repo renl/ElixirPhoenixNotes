@@ -60,6 +60,8 @@
 
    ~phoenix.gen.html~ /creates simple HTTP scaffold with HTML pages/
 
+   ~phoenix.gen.model~ /creates just the model scaffold/
+
    Command
    - ~mix phoenix.gen.html \~
      - ~{Name of module that define model} \~
@@ -73,6 +75,8 @@
    ~url:string title:string description:text~
 
    Model field can support belongs_to associations via references:
+
+   After specifying references of foreign key, has_many association has to be manually added to the referenced model
 
 ** Route
 
