@@ -127,15 +127,17 @@
 
    End with router
 
-** Pipeline
-
-   Pipelines of plugs
-
-*** Plug
+** Plug
 
     Consumes and produces a common data structure ~Plug.Conn~
 
-**** Conn
+*** Pipeline
+
+   Pipelines of plugs
+
+*** Conn
+
+    - ~assign~ used to pass values into template
 
 ** Web
 
@@ -182,13 +184,25 @@
 
    =Connection > endpoint > router > pipeline > controller=
 
-   The controller figures out what user wants and grab the correct
-   model, put in view and return to the user the results
-
+   - The controller figures out what user wants and grab the correct model, put in view and return to the user the results
+   
+   - Controllers are build on Plug and are plugs themshelves
 
 *** Common services
 
 *** Action
+
+    - Controller functions are called =actions=
+
+    - Actions are invoked from router responding to HTTP requests
+
+    - Actions gathers the required data and invoke the view layer to render a template
+
+    - Has 2 parameters
+
+      - =conn= holds info of the request
+
+      - =params= map that holds parameters passed in HTTP request
 
 ** View
 
